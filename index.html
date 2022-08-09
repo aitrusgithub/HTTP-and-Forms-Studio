@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <head>
   <title>Search</title>
+  <script>
+    window.addEventListener('load', function(){
+      console.log("running");
+      let button = document.getElementById("go");
+      button.addEventListener("click", function(event){
+        event.preventDefault();
+        //query selector the first element in document that matches selectors/condition
+        const engine = document.querySelector("input[name=engine]:checked");
+        console.log(engine.value);
+        let actions = {
+   "google": "https://www.google.com/",
+   "duck": "https://duckduckgo.com",
+   "bing": "https://bing.com/search",
+   "ask": "https://ask.com/web"
+};
+      })
+     // TODO: register the handler
+ });
+  </script>
 </head>
 <body>
-	<form>
+	<form id="searchForm">
     <label for="q">Search Term:</label>
     <input id="searchTerm" type="text" name="q">
     <input id="googleSearch" type="radio" name="engine" value="google">
