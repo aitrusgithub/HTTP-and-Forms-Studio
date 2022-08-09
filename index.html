@@ -1,19 +1,19 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <head>
-	<meta charset="utf-8">
-	<script>
-		// TODO: create a handler
-    window.addEventListener("load", function(){
-        // TODO: register the handler
-    });
-	</script>
+  <title>Search</title>
 </head>
-
 <body>
-
-	<form id="searchForm">
-    <!-- TODO: add form elements -->
-	</form>
-
+	<form>
+    <label for="q">Search Term:</label>
+    <input id="searchTerm" type="text" name="q">
+    <input id="googleSearch" type="radio" name="engine" value="google">
+    <label for="googleSearch">Google</label>
+    <input id="duckSearch" type="radio" name="engine" value="duck">
+    <label for="duckSearch">DuckDuckGo</label>
+    <input id="bingSearch" type="radio" name="engine" value="bing">
+    <label for="bingSearch">Bing</label>
+    <input id="askSearch" type="radio" name="engine" value="ask">
+    <label for="askSearch">Ask</label>
+    <button id="go">Go</button>
+  </form>
 </body>
