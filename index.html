@@ -2,23 +2,29 @@
 <head>
   <title>Search</title>
   <script>
-    window.addEventListener('load', function(){
-      console.log("running");
-      let button = document.getElementById("go");
-      button.addEventListener("click", function(event){
-        event.preventDefault();
-        //query selector the first element in document that matches selectors/condition
-        const engine = document.querySelector("input[name=engine]:checked");
-        console.log(engine.value);
-        let actions = {
-   "google": "https://www.google.com/",
-   "duck": "https://duckduckgo.com",
-   "bing": "https://bing.com/search",
-   "ask": "https://ask.com/web"
-};
-      })
-     // TODO: register the handler
- });
+    function setSearchEngine(){
+      //console.log("running");
+      //query selector the first element in document that matches attribute selector paired with a pseudo selector to get only the selected from the group.
+      const engine = document.querySelector("input[name=engine]:checked");
+      console.log(engine.value);
+      let actions = {
+        "google": "https://www.google.com/search",  //Needed to add search to the end of this or it would not run the search just fill in the text box
+        "duck": "https://duckduckgo.com",
+        "bing": "https://bing.com/search",
+        "ask": "https://ask.com/web"
+      };
+      //Gets the value from the key/value pair that matches the attribute selector paired with a pseudo selector to get only the selected from the group.
+      let engineAction = actions[document.querySelector("input[name=engine]:checked").value];
+      console.log(engineAction)
+      //Sets the action attribute of the form (where to send the form-data when a form is submitted)
+      document.getElementById('searchForm').setAttribute('action', engineAction);
+    }
+  // TODO: register the handler
+  //Function to listed to the desired form for when a submit event takes place(clicking the go button) .
+  window.addEventListener('load', function(){
+    //gets the form with id=searchForm and listenst for a submit event within the form.
+    document.getElementById('searchForm').addEventListener('submit', setSearchEngine);
+  });
   </script>
 </head>
 <body>
